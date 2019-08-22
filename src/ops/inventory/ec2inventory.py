@@ -16,7 +16,7 @@ import os
 from boto import ec2
 from boto.pyami.config import Config
 
-from ops.python_compat import iteritems
+from ops.python_compat import iteritems, string_types, integer_types
 
 
 class Ec2Inventory(object):
@@ -198,9 +198,9 @@ class Ec2Inventory(object):
             elif key == 'ec2__previous_state':
                 instance_vars['ec2_previous_state'] = instance.previous_state or ''
                 instance_vars['ec2_previous_state_code'] = instance.previous_state_code
-            elif type(value) in [int, bool]:
+            elif type(value) in integer_types or type(value) == bool:
                 instance_vars[key] = value
-            elif type(value) in [str, unicode]:
+            elif type(value) in string_types:
                 instance_vars[key] = value.strip()
             elif type(value) == type(None):
                 instance_vars[key] = ''
