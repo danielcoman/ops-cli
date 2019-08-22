@@ -94,7 +94,7 @@ source ~/.bash_profile
 mkvirtualenv ops
 workon ops
 
-# install ops-cli v1.9 stable release
+# install ops-cli v1.9.2 stable release
 pip install --upgrade ops-cli
 ```
 
@@ -110,7 +110,7 @@ pip2 install -U virtualenv
 virtualenv ops
 source ops/bin/activate
 
-# install ops-cli v1.9 stable release
+# install ops-cli v1.9.2 stable release
 pip2 install --upgrade ops-cli
 ```
 
@@ -126,7 +126,7 @@ You can try out `ops-cli`, by using docker. The docker image has all required pr
 
 To start out a container, running the latest `ops-cli` docker image run:
 ```sh
-docker run -it adobe/ops-cli:1.9 bash
+docker run -it adobe/ops-cli:1.9.2 bash
 ```
 
 After the container has started, you can start using `ops-cli`:
