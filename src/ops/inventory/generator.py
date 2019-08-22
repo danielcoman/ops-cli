@@ -178,9 +178,9 @@ class PluginInventoryGenerator(object):
     template = """#!/usr/bin/env python
 # CONFIG: {config}
 # PLUGIN PATH: {plugin_path}
-print \"\"\"
+print(\"\"\"
 {json_content}
-\"\"\"
+\"\"\")
 """
 
     def __init__(self, cluster_name, inventory_plugins):

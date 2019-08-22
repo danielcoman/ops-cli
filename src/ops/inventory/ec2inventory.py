@@ -114,7 +114,7 @@ class Ec2Inventory(object):
             raise Exception("{}, configure it with 'aws configure --profile {}'".format(e.message, self.boto_profile))
 
         except boto.exception.BotoServerError, e:
-            print e
+            print(e)
             sys.exit(1)
 
     def get_instance(self, region, instance_id):

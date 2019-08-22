@@ -293,7 +293,7 @@ class AzureRM(object):
 
     def log(self, msg):
         if self.debug:
-            print (msg + u'\n')
+            print(msg + u'\n')
 
     def fail(self, msg):
         raise Exception(msg)
@@ -448,7 +448,7 @@ class AzureInventory(object):
             self.include_powerstate = False
 
         self.get_inventory()
-        print (self._json_format_dict(pretty=self._args.pretty))
+        print(self._json_format_dict(pretty=self._args.pretty))
         sys.exit(0)
 
     def _parse_cli_args(self):

@@ -105,7 +105,7 @@ class SshRunner(object):
                 else:
                     #generate ssh keypair. The passphrase will be the name of the cluster
                     cmd = "ssh-keygen -t rsa -b 4096 -N {} -f {}".format(self.cluster_name,prv_key_file).split(' ')
-                    print cmd
+                    print(cmd)
                     call(cmd)
             return
 

@@ -58,8 +58,8 @@ class RootParser(object):
                 elif isinstance(value, str):  # Python 2 str, check if it can be represented in utf8
                     value.encode('utf-8')
         except UnicodeDecodeError as e:
-            print 'Invalid character in argument "{0}", most likely an "en dash", replace it with normal dash -'.format(
-                e.args[1])
+            print('Invalid character in argument "{0}", most likely an "en dash", replace it with normal dash -'.format(
+                e.args[1]))
             raise
 
     def parse_args(self, args=None):
