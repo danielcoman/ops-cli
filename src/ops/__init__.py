@@ -12,7 +12,7 @@ import pkg_resources
 import re
 from distutils.version import StrictVersion
 from subprocess import call, Popen, PIPE
-from ops.cli import display
+from .cli import display
 
 
 def validate_ops_version(min_ops_version):

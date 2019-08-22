@@ -110,10 +110,10 @@ class Ec2Inventory(object):
             for instance in sorted(instances, key=sort_key):
                 self.add_instance(bastion_ip, instance, region)
 
-        except boto.provider.ProfileNotFoundError, e:
+        except boto.provider.ProfileNotFoundError as e:
             raise Exception("{}, configure it with 'aws configure --profile {}'".format(e.message, self.boto_profile))
 
-        except boto.exception.BotoServerError, e:
+        except boto.exception.BotoServerError as e:
             print(e)
             sys.exit(1)
 

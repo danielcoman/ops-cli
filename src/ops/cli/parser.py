@@ -12,6 +12,8 @@ import argparse
 
 import sys
 
+from ops.python_compat import PY3
+
 
 class RootParser(object):
     def __init__(self, sub_parsers=None):
@@ -52,7 +54,7 @@ class RootParser(object):
 
         try:
             for value in args:
-                if isinstance(value, unicode):
+                if not PY3 and isinstance(value, unicode):
                     # Python3 or some Python3 compatibility mode can make arguments to be unicode, not str
                     value.encode('utf-8').encode('utf-8')
                 elif isinstance(value, str):  # Python 2 str, check if it can be represented in utf8

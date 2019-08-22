@@ -10,9 +10,9 @@
 
 from subprocess import call
 
-from ops.cli import display
-from ops.cli.parser import SubParserConfig
-from parser import configure_common_arguments
+from . import display
+from .parser import SubParserConfig
+from .parser import configure_common_arguments
 from ansible.inventory.host import Host
 
 from . import err

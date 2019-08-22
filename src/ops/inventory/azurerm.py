@@ -195,7 +195,7 @@ Version: 1.0.0
 '''
 
 import argparse
-import ConfigParser
+from six.moves import configparser
 import json
 import os
 import re
@@ -302,7 +302,7 @@ class AzureRM(object):
         path = expanduser("~")
         path += "/.azure/credentials"
         try:
-            config = ConfigParser.ConfigParser()
+            config = configparser.ConfigParser()
             config.read(path)
         except Exception as exc:
             self.fail("Failed to access {0}. Check that the file exists and you have read "

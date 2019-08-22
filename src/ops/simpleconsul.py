@@ -18,7 +18,7 @@ import re
 import consul
 import hashmerge
 
-from ops.python_compat import iteritems
+from .python_compat import iteritems
 
 DEFAULT_CONNECT = {
     'host': '127.0.0.1',

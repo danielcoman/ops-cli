@@ -21,8 +21,8 @@ Very simple secrets management that can be used to
 import os
 import hvac
 import getpass
-from ops.cli import display
-from ops.python_compat import iteritems
+from .cli import display
+from .python_compat import iteritems
 
 MAX_LDAP_ATTEMPTS = 3
 class SimpleVault(object):

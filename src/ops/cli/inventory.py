@@ -12,8 +12,8 @@ import yaml
 
 from ansible.parsing.yaml.dumper import AnsibleDumper
 from ansible.utils.color import stringc
-from ops.cli import display
-from parser import configure_common_arguments, SubParserConfig
+from . import display
+from .parser import configure_common_arguments, SubParserConfig
 
 
 class InventoryParserConfig(SubParserConfig):

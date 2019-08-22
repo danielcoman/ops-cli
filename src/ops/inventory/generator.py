@@ -15,7 +15,7 @@ from distutils.dir_util import copy_tree
 
 import ansible.inventory as ansible_inventory
 import ansible.vars as ansible_vars
-import caching
+from . import caching
 from ansible.inventory.manager import InventoryManager
 from ansible.parsing.dataloader import DataLoader
 from ansible.playbook.play import display
@@ -140,7 +140,7 @@ class InventoryGenerator(object):
                         error = 'Required key %s not found' % e
                         errors.append(dict(entry=entry, error=error))
                     except Exception as e:
-                        errors.append(dict(entry=entry, error=e))
+                        errors.append(dict(entry=entry, error=str(e)))
                     found_generator = True
                     break
 
@@ -205,7 +205,7 @@ print(\"\"\"
 
         with open(script_dest, 'w+') as f:
             f.write(script_content)
-            os.fchmod(f.fileno(), 0500)
+            os.fchmod(f.fileno(), 0o500)
 
 
 class ShellInventoryGenerator(object):
@@ -257,7 +257,7 @@ fi
 
         with open(script_dest, 'w+') as f:
             f.write(script_content)
-            os.fchmod(f.fileno(), 0500)
+            os.fchmod(f.fileno(), 0o500)
 
 
 class AnsibleInventory(object):
