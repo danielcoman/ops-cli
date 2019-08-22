@@ -101,11 +101,8 @@ class Ec2Inventory(object):
 
             # sort the instance based on name and index, in this order
             def sort_key(instance):
-                components = instance.tags.get('Name', '').rsplit('-', 1)
-                if len(components) == 2:
-                    return (components[0], int(components[1]) if components[1].isdigit() else 0)
-                else:
-                    return components[0]
+                name = instance.tags.get('Name', '')
+                return name + "-" + str(instance.id)
 
             for instance in sorted(instances, key=sort_key):
                 self.add_instance(bastion_ip, instance, region)

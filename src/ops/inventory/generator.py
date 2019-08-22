@@ -139,8 +139,6 @@ class InventoryGenerator(object):
                     except KeyError as e:
                         error = 'Required key %s not found' % e
                         errors.append(dict(entry=entry, error=error))
-                    except Exception as e:
-                        errors.append(dict(entry=entry, error=str(e)))
                     found_generator = True
                     break
 
