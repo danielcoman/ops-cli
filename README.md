@@ -79,9 +79,7 @@ https://virtualenv.pypa.io/en/stable/
 
 #### Python 3
 ```sh
-# Ops tool works on python2 only at the moment.
-
-# Make sure pip is up to date (min version: 9.0.3)
+# Make sure pip is up to date
 curl https://bootstrap.pypa.io/get-pip.py | python3
 
 # Install virtualenv
@@ -102,9 +100,7 @@ pip install --upgrade ops-cli
 
 #### Python 2
 ```sh
-# Ops tool works on python2 only at the moment.
-
-# Make sure pip is up to date (min version: 9.0.3)
+# Make sure pip is up to date
 curl https://bootstrap.pypa.io/2.6/get-pip.py | python2
 
 # Install virtualenv

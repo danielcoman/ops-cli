@@ -34,7 +34,7 @@ from os.path import expanduser
 class WebApiClient(object):
     """Class to allow easy access to the SKMS Web API"""
     # Version Constants
-    CLIENT_TYPE = "python2.6.requests"
+    CLIENT_TYPE = "python3.7.requests"
     CLIENT_VERSION = "1.10"
 
     # Properties
