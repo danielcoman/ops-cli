@@ -22,6 +22,7 @@ import os
 import hvac
 import getpass
 from ops.cli import display
+from ops.python_compat import iteritems
 
 MAX_LDAP_ATTEMPTS = 3
 class SimpleVault(object):
@@ -118,7 +119,7 @@ class SimpleVault(object):
         if isinstance(value, (basestring, int, float, bool)):
             payload['value'] = str(value)
         elif isinstance(value, dict):
-            for k,v in value.iteritems():
+            for k,v in iteritems(value):
                 payload[k] = str(v)
         else:
             raise Exception('Unsupported data type for secret payload')

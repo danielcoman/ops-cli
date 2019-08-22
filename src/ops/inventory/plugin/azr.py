@@ -11,6 +11,7 @@
 import json
 from ops.inventory.azurerm import *
 from ansible.playbook.play import display
+from ops.python_compat import iteritems
 
 class DictGlue(object):
     def __init__(self,data={}):
@@ -89,7 +90,7 @@ class OpsAzureInventory(AzureInventory):
         self.get_inventory()
 
         bastions = {}
-        for host, hostvars in self._inventory['_meta']['hostvars'].iteritems():
+        for host, hostvars in iteritems(self._inventory['_meta']['hostvars']):
             if ('role' in hostvars['tags'] and hostvars['tags']['role'] == 'bastion') or \
               ('Adobe:Class' in hostvars['tags'] and hostvars['tags']['Adobe:Class'] == 'bastion'):
                 if hostvars['public_ip'] is not None:
@@ -101,7 +102,7 @@ class OpsAzureInventory(AzureInventory):
                     display.display("Warning, bastion host found but has no public IP (is the host stopped?)", color='yellow')
 
         if bastions:
-            for host, hostvars in self._inventory['_meta']['hostvars'].iteritems():
+            for host, hostvars in iteritems(self._inventory['_meta']['hostvars']):
                 if ('role' in hostvars['tags'] and hostvars['tags']['role'] == 'bastion') or \
                   ('Adobe:Class' in hostvars['tags'] and hostvars['tags']['Adobe:Class'] == 'bastion'):
                     pass

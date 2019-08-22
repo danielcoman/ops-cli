@@ -16,6 +16,8 @@ import os
 from boto import ec2
 from boto.pyami.config import Config
 
+from ops.python_compat import iteritems
+
 
 class Ec2Inventory(object):
     def _empty_inventory(self):
@@ -207,7 +209,7 @@ class Ec2Inventory(object):
             elif key == 'ec2__placement':
                 instance_vars['ec2_placement'] = value.zone
             elif key == 'ec2_tags':
-                for k, v in value.iteritems():
+                for k, v in iteritems(value):
                     key = self.to_safe('ec2_tag_' + k)
                     instance_vars[key] = v
             elif key == 'ec2_groups':
