@@ -14,12 +14,10 @@ import os
 import yaml
 
 from ansible.parsing.dataloader import DataLoader
-from ansible.plugins.loader import PluginLoader
 from ansible.template import Templar
 from ansible.utils.vars import load_extra_vars
 from ansible.vars.manager import VariableManager
 from ops.cli import display
-from ansible import constants as C
 import logging
 
 logger = logging.getLogger(__name__)
