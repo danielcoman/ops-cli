@@ -9,8 +9,10 @@
 # governing permissions and limitations under the License.
 
 import logging
+
 from himl.main import ConfigRunner
 from ops.cli.parser import SubParserConfig
+from ops.hierarchical.composition_config_generator import CompositionConfigGenerator
 
 logger = logging.getLogger(__name__)
 
@@ -31,16 +33,20 @@ class ConfigGeneratorParserConfig(SubParserConfig):
         ops data/account=ee-dev/env=dev/region=va6/project=ee/cluster=experiments/composition=helmfiles config --format json --print-data
         '''
 
-
-class ConfigGeneratorRunner(object):
-    def __init__(self, cluster_config_path):
+class ConfigGeneratorRunner(CompositionConfigGenerator, object):
+    def __init__(self, ops_config, cluster_config_path):
+        super(ConfigGeneratorRunner, self).__init__(["config"])
+        self.ops_config = ops_config
         self.cluster_config_path = cluster_config_path
 
-    def run(self, args, extra_args):
-        logger.info("Found extra_args %s", extra_args)
-        logging.basicConfig(level=logging.INFO)
-        args.path = self.cluster_config_path
-        if args.output_file is None:
-            args.print_data = True
 
-        ConfigRunner().do_run(args)
+    def run(self, args, extra_args):
+        print(args)
+        print(extra_args)
+        self.args = args
+        print(self.args)
+
+        # config_path = os.path.join(self.cluster_config_path, '')
+
+        self.config_generator.generate_config(self.args)
+
